@@ -1,0 +1,17 @@
+[
+    {
+        "questionId": "q_01_001",
+        "chapterId": "ch_01",
+        "topicId": "tp_01_01",
+        "questionText": "Which of the following best defines the economic problem of scarcity?",
+        "options": {
+            "A": "Market prices are too high for consumers.",
+            "B": "Resources are limited relative to unlimited human wants.",
+            "C": "Production techniques are inefficient.",
+            "D": "Government regulations restrict output."
+        },
+        "correctAnswer": "B",
+        "detailedExplanation": "Scarcity arises because resources (land, labor, capital) are finite, while human desires for goods and services are virtually limitless.",
+        "difficultyLevel": "easy"
+    }
+]

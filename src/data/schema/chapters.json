@@ -1,0 +1,14 @@
+[
+    {
+        "chapterId": "ch_01",
+        "chapterTitle": "Introduction to Microeconomics",
+        "shortDescription": "Fundamental concepts including scarcity, opportunity cost, and market structures.",
+        "orderNumber": 1
+    },
+    {
+        "chapterId": "ch_02",
+        "chapterTitle": "Supply and Demand",
+        "shortDescription": "The core forces driving market prices and equilibrium.",
+        "orderNumber": 2
+    }
+]

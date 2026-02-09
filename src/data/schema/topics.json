@@ -1,0 +1,21 @@
+[
+    {
+        "topicId": "tp_01_01",
+        "chapterId": "ch_01",
+        "topicName": "Scarcity and Choice",
+        "detailedExplanation": "Economics is the study of how society manages its scarce resources. Scarcity means that society has limited resources and therefore cannot produce all the goods and services people wish to have.",
+        "keyFormulas": [],
+        "diagrams": [
+            "ppf_curve.png"
+        ]
+    },
+    {
+        "topicId": "tp_01_02",
+        "chapterId": "ch_01",
+        "topicName": "Opportunity Cost",
+        "detailedExplanation": "The opportunity cost of an item is what you give up to get that item. Example: Staying home to study for an exam means giving up wages you could have earned at a part-time job.",
+        "keyFormulas": [
+            "Opportunity Cost = Return on Best Forgone Option - Return on Chosen Option"
+        ]
+    }
+]

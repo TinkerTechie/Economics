@@ -1,0 +1,50 @@
+[
+    {
+        "chapterId": "ch_micro_01",
+        "chapterTitle": "Consumer Theory",
+        "shortDescription": "Analysis of individual decision making, utility maximization, and demand.",
+        "orderNumber": 1
+    },
+    {
+        "chapterId": "ch_micro_02",
+        "chapterTitle": "Production and Cost",
+        "shortDescription": "Firm behavior, production functions, cost minimization, and supply.",
+        "orderNumber": 2
+    },
+    {
+        "chapterId": "ch_micro_03",
+        "chapterTitle": "Market Structures",
+        "shortDescription": "Perfect competition, monopoly, oligopoly, and game theory.",
+        "orderNumber": 3
+    },
+    {
+        "chapterId": "ch_macro_01",
+        "chapterTitle": "National Income Accounting",
+        "shortDescription": "GDP, GNP, circular flow, and measurement of economic activity.",
+        "orderNumber": 4
+    },
+    {
+        "chapterId": "ch_macro_02",
+        "chapterTitle": "IS-LM Model",
+        "shortDescription": "Goods and money market equilibrium in the short run.",
+        "orderNumber": 5
+    },
+    {
+        "chapterId": "ch_stats_01",
+        "chapterTitle": "Probability and Distributions",
+        "shortDescription": "Random variables, probability distributions, expectation, and variance.",
+        "orderNumber": 6
+    },
+    {
+        "chapterId": "ch_math_01",
+        "chapterTitle": "Optimization",
+        "shortDescription": "Unconstrained and constrained optimization, Lagrange multipliers.",
+        "orderNumber": 7
+    },
+    {
+        "chapterId": "ch_ie_01",
+        "chapterTitle": "Indian Economy: Planning and Reform",
+        "shortDescription": "Five Year Plans, 1991 reforms, agriculture and industry.",
+        "orderNumber": 8
+    }
+]
