@@ -106,5 +106,33 @@ export const testManifest = {
         sections: [
             { name: "Mixed", type: "MCQ", questionIds: Array.from({ length: 40 }, (_, i) => `st_mixed_${String(i + 1).padStart(3, '0')}`) }
         ]
+    },
+    // --- WEAK-AREA REINFORCEMENT TESTS ---
+    "wa_consumer_001": {
+        title: "Weak-Area: Consumer Theory",
+        description: "Intensive 10-question drill to fix conceptual gaps in Consumer Optimization and Demand.",
+        duration: 15,
+        totalMarks: 10,
+        sections: [
+            { name: "Consumer Theory", type: "MCQ", questionIds: Array.from({ length: 10 }, (_, i) => `wa_consumer_${String(i + 1).padStart(3, '0')}`) }
+        ]
+    },
+    "wa_prod_001": {
+        title: "Weak-Area: Production \u0026 Cost",
+        description: "Master cost functions, returns to scale, and firm optimization.",
+        duration: 15,
+        totalMarks: 10,
+        sections: [
+            { name: "Production \u0026 Cost", type: "MCQ", questionIds: Array.from({ length: 10 }, (_, i) => `wa_prod_${String(i + 1).padStart(3, '0')}`) }
+        ]
+    },
+    "wa_islm_001": {
+        title: "Weak-Area: IS-LM Model",
+        description: "Focused drill on IS-LM shifts, equilibrium, and policy effectiveness.",
+        duration: 12,
+        totalMarks: 5,
+        sections: [
+            { name: "IS-LM Model", type: "MCQ", questionIds: Array.from({ length: 5 }, (_, i) => `wa_islm_${String(i + 1).padStart(3, '0')}`) }
+        ]
     }
 };

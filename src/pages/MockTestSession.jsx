@@ -19,6 +19,7 @@ const MockTestSession = () => {
     const [timeLeft, setTimeLeft] = useState(null); // Init as null to avoid race condition
     const [isFinished, setIsFinished] = useState(false);
     const [score, setScore] = useState(0);
+    const [topicAnalysis, setTopicAnalysis] = useState({});
     const timerRef = useRef(null);
 
     // Fetch Test Data
@@ -93,24 +94,62 @@ const MockTestSession = () => {
         setIsFinished(true);
         if (timerRef.current) clearInterval(timerRef.current);
 
-        // Calculate Score (Client-side for now)
+        // Calculate Score & Topic Analysis
         let calculatedScore = 0;
+        const analysis = {};
+
         testQuestions.forEach(q => {
+            const topic = q.topic || 'General';
+            if (!analysis[topic]) {
+                analysis[topic] = { total: 0, correct: 0 };
+            }
+            analysis[topic].total += 1;
+
             const userAnswer = answers[q.id];
             if (!userAnswer) return;
 
+            let isCorrect = false;
             if (q.type === 'MCQ' || q.type === 'NAT') {
-                if (String(userAnswer).trim() === String(q.correctAnswer).trim()) calculatedScore += 1;
+                if (String(userAnswer).trim().toLowerCase() === String(q.correctAnswer).trim().toLowerCase()) isCorrect = true;
             } else if (q.type === 'MSQ') {
                 const sortedUser = [...userAnswer].sort();
                 const sortedCorrect = [...q.correctAnswer].sort();
-                if (JSON.stringify(sortedUser) === JSON.stringify(sortedCorrect)) calculatedScore += 2;
+                if (JSON.stringify(sortedUser) === JSON.stringify(sortedCorrect)) isCorrect = true;
+            }
+
+            if (isCorrect) {
+                analysis[topic].correct += 1;
+                calculatedScore += (q.type === 'MSQ' ? 2 : 1);
             }
         });
+
+        // Calculate percentages
+        const finalAnalysis = {};
+        Object.keys(analysis).forEach(topic => {
+            finalAnalysis[topic] = Math.round((analysis[topic].correct / analysis[topic].total) * 100);
+        });
+
         setScore(calculatedScore);
+        setTopicAnalysis(finalAnalysis);
 
         // Op: Send to API
         await api.submitTest(testId, answers);
+    };
+
+    const getRecommendation = (topic) => {
+        const mapping = {
+            'Consumer Theory': 'wa_consumer_001',
+            'Production & Cost': 'wa_prod_001',
+            'IS-LM Model': 'wa_islm_001',
+            'Microeconomics': 'wa_consumer_001',
+            'Macroeconomics': 'wa_islm_001',
+            'Keynesian Theory': 'wa_islm_001',
+            'Market Structures': 'section_micro_001',
+            'Statistics': 'section_stats_001',
+            'Indian Economy': 'section_ie_001',
+            'Inflation & Unemployment': 'section_macro_001'
+        };
+        return mapping[topic];
     };
 
     if (loading) return (
@@ -297,6 +336,42 @@ const MockTestSession = () => {
                             <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#8b5cf6' }}>
                                 {Math.round((score / testQuestions.length) * 100)}%
                             </span>
+                        </div>
+                    </div>
+
+                    {/* Topic Analysis & Recommendations */}
+                    <div style={{ maxWidth: '800px', margin: '0 auto 3rem', textAlign: 'left', background: 'rgba(255,255,255,0.03)', padding: '2rem', borderRadius: '1rem', border: '1px solid rgba(255,255,255,0.05)' }}>
+                        <h3 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <AlertTriangle size={20} className="text-warning" /> Performance Analysis
+                        </h3>
+                        <div style={{ display: 'grid', gap: '1rem' }}>
+                            {Object.entries(topicAnalysis).map(([topic, pct]) => {
+                                const isWeak = pct < 60;
+                                const recommendationId = getRecommendation(topic);
+
+                                return (
+                                    <div key={topic} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', background: 'rgba(255,255,255,0.02)', borderRadius: '0.5rem' }}>
+                                        <div style={{ flex: 1 }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', paddingRight: '2rem' }}>
+                                                <span>{topic}</span>
+                                                <span style={{ color: isWeak ? '#ef4444' : '#10b981', fontWeight: 'bold' }}>{pct}%</span>
+                                            </div>
+                                            <div style={{ height: '4px', background: 'rgba(255,255,255,0.1)', borderRadius: '2px', marginRight: '2rem' }}>
+                                                <div style={{ height: '100%', width: `${pct}%`, background: isWeak ? '#ef4444' : '#10b981', borderRadius: '2px' }}></div>
+                                            </div>
+                                        </div>
+                                        {isWeak && recommendationId && (
+                                            <button
+                                                className="btn-primary"
+                                                style={{ width: 'auto', padding: '0.5rem 1rem', fontSize: '0.8rem', background: '#8b5cf6' }}
+                                                onClick={() => navigate(`/mock/session/${recommendationId}`)}
+                                            >
+                                                Take Weak-Area Test
+                                            </button>
+                                        )}
+                                    </div>
+                                )
+                            })}
                         </div>
                     </div>
 

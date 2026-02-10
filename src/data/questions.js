@@ -18,6 +18,7 @@ import { indianEconomyPovertyNumericals } from './questions_indian_economy_pover
 import { advancedToughQuestions } from './questions_advanced_tough';
 import { mockHardQuestions } from './questions_mock_hard';
 import { sectionTestQuestions } from './questions_section_tests';
+import { weakAreaQuestions } from './questions_weak_areas';
 
 export const questions = [
     ...coreQuestions,
@@ -38,5 +39,6 @@ export const questions = [
     ...indianEconomyPovertyNumericals,
     ...advancedToughQuestions,
     ...mockHardQuestions,
-    ...sectionTestQuestions
+    ...sectionTestQuestions,
+    ...weakAreaQuestions
 ];
