@@ -33,5 +33,33 @@ export const testManifest = {
             { name: "Micro", type: "MCQ", questionIds: ["micro_001", "micro_002", "micro_004"] },
             { name: "Stats", type: "mixed", questionIds: ["stats_001", "stats_002", "stats_003"] }
         ]
+    },
+    "mock_hard_full": {
+        title: "IIT JAM Hard Mock (100 Qs)",
+        description: "Intensive full-length mock test with high-difficulty conceptual and numerical questions.",
+        duration: 180,
+        totalMarks: 100,
+        sections: [
+            {
+                name: "Microeconomics",
+                type: "MCQ",
+                questionIds: Array.from({ length: 35 }, (_, i) => `mock_hard_${String(i + 1).padStart(3, '0')}`)
+            },
+            {
+                name: "Macroeconomics",
+                type: "MCQ",
+                questionIds: Array.from({ length: 35 }, (_, i) => `mock_hard_${String(i + 36).padStart(3, '0')}`)
+            },
+            {
+                name: "Statistics \u0026 Math",
+                type: "MCQ",
+                questionIds: Array.from({ length: 15 }, (_, i) => `mock_hard_${String(i + 71).padStart(3, '0')}`)
+            },
+            {
+                name: "Indian Economy",
+                type: "MCQ",
+                questionIds: Array.from({ length: 15 }, (_, i) => `mock_hard_${String(i + 86).padStart(3, '0')}`)
+            }
+        ]
     }
 };

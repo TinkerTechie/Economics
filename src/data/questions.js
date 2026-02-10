@@ -9,6 +9,14 @@ import { marketStructuresQuestions } from './questions_market_structures';
 import { macroeconomicsQuestions } from './questions_macroeconomics';
 import { islmQuestions } from './questions_islm';
 import { islmNumericalQuestions } from './questions_islm_numerical';
+import { multiplierAcceleratorQuestions } from './questions_multiplier_accelerator';
+import { growthModelsQuestions } from './questions_growth_models';
+import { inflationPhillipsQuestions } from './questions_inflation_phillips';
+import { indianEconomyQuestions } from './questions_indian_economy';
+import { indianEconomyFiscalNumericals } from './questions_indian_economy_fiscal';
+import { indianEconomyPovertyNumericals } from './questions_indian_economy_poverty';
+import { advancedToughQuestions } from './questions_advanced_tough';
+import { mockHardQuestions } from './questions_mock_hard';
 
 export const questions = [
     ...coreQuestions,
@@ -20,5 +28,13 @@ export const questions = [
     ...marketStructuresQuestions,
     ...macroeconomicsQuestions,
     ...islmQuestions,
-    ...islmNumericalQuestions
+    ...islmNumericalQuestions,
+    ...multiplierAcceleratorQuestions,
+    ...growthModelsQuestions,
+    ...inflationPhillipsQuestions,
+    ...indianEconomyQuestions,
+    ...indianEconomyFiscalNumericals,
+    ...indianEconomyPovertyNumericals,
+    ...advancedToughQuestions,
+    ...mockHardQuestions
 ];
