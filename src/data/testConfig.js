@@ -61,5 +61,50 @@ export const testManifest = {
                 questionIds: Array.from({ length: 15 }, (_, i) => `mock_hard_${String(i + 86).padStart(3, '0')}`)
             }
         ]
+    },
+    "section_micro_001": {
+        title: "Test 1: Microeconomics",
+        description: "Timed section focus on Consumer Theory, Production, and Market Structures.",
+        duration: 35,
+        totalMarks: 20,
+        sections: [
+            { name: "Microeconomics", type: "MCQ", questionIds: Array.from({ length: 20 }, (_, i) => `st_micro_${String(i + 1).padStart(3, '0')}`) }
+        ]
+    },
+    "section_macro_001": {
+        title: "Test 2: Macroeconomics",
+        description: "Timed section focus on IS-LM, Multiplier, and Solow Model.",
+        duration: 35,
+        totalMarks: 20,
+        sections: [
+            { name: "Macroeconomics", type: "MCQ", questionIds: Array.from({ length: 20 }, (_, i) => `st_macro_${String(i + 1).padStart(3, '0')}`) }
+        ]
+    },
+    "section_stats_001": {
+        title: "Test 3: Statistics \u0026 Math",
+        description: "Timed section focus on Correlation, Probability, and Optimization.",
+        duration: 30,
+        totalMarks: 20,
+        sections: [
+            { name: "Stats \u0026 Math", type: "MCQ", questionIds: Array.from({ length: 20 }, (_, i) => `st_stats_${String(i + 1).padStart(3, '0')}`) }
+        ]
+    },
+    "section_ie_001": {
+        title: "Test 4: Indian Economy",
+        description: "Timed section focus on GDP, RBI, GST, and Fiscal Policy.",
+        duration: 25,
+        totalMarks: 20,
+        sections: [
+            { name: "Indian Economy", type: "MCQ", questionIds: Array.from({ length: 20 }, (_, i) => `st_ie_${String(i + 1).padStart(3, '0')}`) }
+        ]
+    },
+    "section_mixed_001": {
+        title: "Test 5: Mixed Full Length",
+        description: "Balanced mix of Micro, Macro, Stats, and Indian Economy questions.",
+        duration: 60,
+        totalMarks: 40,
+        sections: [
+            { name: "Mixed", type: "MCQ", questionIds: Array.from({ length: 40 }, (_, i) => `st_mixed_${String(i + 1).padStart(3, '0')}`) }
+        ]
     }
 };
